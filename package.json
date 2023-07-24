@@ -1,0 +1,14 @@
+{
+  "name": "dvdrental",
+  "version": "0.0.1",
+  "description": "A fullstack applicationf or dvdrental",
+  "scripts": {
+    "start": "pnpm --stream -r start",
+    "build": "pnpm --stream -r run build",
+    "clean": "pnpm --stream -r clean",
+    "start:dev": "pnpm --parallel --stream -r run start:dev"
+  },
+  "author": "sheraz@arthur.digital",
+  "license": "UNLICENSED",
+  "private": true
+}
