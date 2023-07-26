@@ -7,11 +7,9 @@ import {
   RawServerDefault,
   FastifyPluginOptions,
   RawServerBase,
-  // FastifyTypeProvider,
-  // FastifyTypeProviderDefault,
 } from "fastify";
 
-export type FastifyInstanceZod = FastifyInstance<
+export type RouteInstance = FastifyInstance<
   RawServerDefault,
   RawRequestDefaultExpression<RawServerDefault>,
   RawReplyDefaultExpression<RawServerDefault>,
@@ -19,10 +17,9 @@ export type FastifyInstanceZod = FastifyInstance<
   ZodTypeProvider
 >;
 
-export type FastifyPluginAsyncZod<
+export type RoutePlugin<
   Options extends FastifyPluginOptions = Record<never, never>,
   Server extends RawServerBase = RawServerDefault,
-  // TypeProvider extends FastifyTypeProvider = FastifyTypeProviderDefault,
   Logger extends FastifyBaseLogger = FastifyBaseLogger
 > = (
   instance: FastifyInstance<

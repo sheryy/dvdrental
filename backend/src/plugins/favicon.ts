@@ -1,9 +1,9 @@
 import fp from "fastify-plugin";
-import sensiblePlugin from "@fastify/sensible";
+import faviconPlugin from "fastify-favicon";
 import { FastifyPluginAsync } from "fastify";
 
 const plugin: FastifyPluginAsync = async function (fastify) {
-  await fastify.register(sensiblePlugin);
+  await fastify.register(faviconPlugin);
 };
 
-export default fp(plugin, { name: "sensible-plugin" });
+export default fp(plugin, { name: "favicon-plugin" });

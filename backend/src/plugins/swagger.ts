@@ -1,11 +1,11 @@
 import fp from "fastify-plugin";
-import swagger from "@fastify/swagger";
-import swaggerUI from "@fastify/swagger-ui";
+import swaggerPlugin from "@fastify/swagger";
+import swaggerUIPlugin from "@fastify/swagger-ui";
 import { FastifyPluginAsync } from "fastify";
 import { jsonSchemaTransform } from "fastify-type-provider-zod";
 
 const plugin: FastifyPluginAsync = async function (fastify) {
-  await fastify.register(swagger, {
+  await fastify.register(swaggerPlugin, {
     swagger: {
       host: "localhost:3000",
       schemes: ["http"],
@@ -20,7 +20,7 @@ const plugin: FastifyPluginAsync = async function (fastify) {
     transform: jsonSchemaTransform,
   });
 
-  await fastify.register(swaggerUI, {
+  await fastify.register(swaggerUIPlugin, {
     routePrefix: "/docs",
     uiConfig: {
       deepLinking: false,

@@ -1,9 +1,9 @@
 import fp from "fastify-plugin";
-import sensiblePlugin from "@fastify/sensible";
+import corsPlugin from "@fastify/cors";
 import { FastifyPluginAsync } from "fastify";
 
 const plugin: FastifyPluginAsync = async function (fastify) {
-  await fastify.register(sensiblePlugin);
+  await fastify.register(corsPlugin);
 };
 
-export default fp(plugin, { name: "sensible-plugin" });
+export default fp(plugin, { name: "cors-plugin" });

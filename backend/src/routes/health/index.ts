@@ -1,19 +1,23 @@
 import path from "path";
 import { z } from "zod";
-import { FastifyPluginAsyncZod } from "../base";
+import { RoutePlugin } from "routes/route";
 
-const schema = {
-  schema: {
-    description: "Health check endpoint",
-    tags: [path.basename(__dirname)],
-    response: {
-      200: z.number().positive().describe("Current server time"),
+const route: RoutePlugin = async function (fastify) {
+  fastify.get(
+    "/",
+    {
+      schema: {
+        description: "Health check endpoint",
+        tags: [path.basename(__dirname)],
+        response: {
+          200: z.number().positive().describe("API server current time"),
+        },
+      },
     },
-  },
-} as const;
-
-const route: FastifyPluginAsyncZod = async function (fastify) {
-  fastify.get("/", schema, () => Date.now());
+    async function (request, reply) {
+      return Date.now();
+    }
+  );
 };
 
 export default route;
